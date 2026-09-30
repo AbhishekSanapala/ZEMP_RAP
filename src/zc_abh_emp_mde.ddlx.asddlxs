@@ -1,0 +1,204 @@
+@Metadata.layer: #CORE
+
+@UI.headerInfo: {
+  typeName: 'Employee',
+  typeNamePlural: 'Employees',
+  title: {
+    type: #STANDARD,
+    value: 'FirstName'
+  },
+  description: {
+    type: #STANDARD,
+    value: 'EmployeeId'
+  }
+}
+
+annotate view ZC_ABH_EMP with
+{
+  @UI.facet: [
+    {
+      id: 'EmployeeDetails',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Employee Details',
+      position: 10
+    }
+  ]
+
+  @UI.lineItem: [
+    {
+      position: 10,
+      importance: #HIGH,
+      label: 'Employee ID'
+    }
+  ]
+  @UI.selectionField: [
+    {
+      position: 10
+    }
+  ]
+  @UI.identification: [
+    {
+      position: 10,
+      label: 'Employee ID'
+    }
+  ]
+  EmployeeId;
+
+  @UI.lineItem: [
+    {
+      position: 20,
+      importance: #HIGH,
+      label: 'First Name'
+    }
+  ]
+  @UI.selectionField: [
+    {
+      position: 20
+    }
+  ]
+  @UI.identification: [
+    {
+      position: 20,
+      label: 'First Name'
+    }
+  ]
+  FirstName;
+
+  @UI.lineItem: [
+    {
+      position: 30,
+      importance: #HIGH,
+      label: 'Last Name'
+    }
+  ]
+  @UI.identification: [
+    {
+      position: 30,
+      label: 'Last Name'
+    }
+  ]
+  LastName;
+
+  @UI.lineItem: [
+    {
+      position: 40,
+      importance: #HIGH,
+      label: 'Email'
+    }
+  ]
+  @UI.selectionField: [
+    {
+      position: 30
+    }
+  ]
+  @UI.identification: [
+    {
+      position: 40,
+      label: 'Email'
+    }
+  ]
+  Email;
+
+  @UI.lineItem: [
+    {
+      position: 50,
+      importance: #HIGH,
+      label: 'Designation'
+    }
+  ]
+  @UI.selectionField: [
+    {
+      position: 40
+    }
+  ]
+  @UI.identification: [
+    {
+      position: 50,
+      label: 'Designation'
+    }
+  ]
+  Designation;
+
+  @UI.lineItem: [
+    {
+      position: 60,
+      importance: #HIGH,
+      label: 'Salary'
+    }
+  ]
+  @UI.identification: [
+    {
+      position: 60,
+      label: 'Salary'
+    }
+  ]
+  Salary;
+
+  @UI.lineItem: [
+    {
+      position: 70,
+      importance: #MEDIUM,
+      label: 'Joining Date'
+    }
+  ]
+  @UI.selectionField: [
+    {
+      position: 50
+    }
+  ]
+  @UI.identification: [
+    {
+      position: 70,
+      label: 'Joining Date'
+    }
+  ]
+  JoiningDate;
+
+  @UI.lineItem: [
+    {
+      position: 80,
+      importance: #HIGH,
+      label: 'Status'
+    }
+  ]
+  @UI.selectionField: [
+    {
+      position: 60
+    }
+  ]
+  @UI.identification: [
+    {
+      position: 80,
+      label: 'Status'
+    }
+  ]
+  Status;
+
+  @UI.lineItem: [
+    {
+      position: 90,
+      importance: #MEDIUM,
+      label: 'Department ID'
+    }
+  ]
+  @UI.identification: [
+    {
+      position: 90,
+      label: 'Department ID'
+    }
+  ]
+  DepartmentId;
+
+  @UI.hidden: true
+  CreatedBy;
+
+  @UI.hidden: true
+  CreatedAt;
+
+  @UI.hidden: true
+  LastChangedBy;
+
+  @UI.hidden: true
+  LastChangedAt;
+}

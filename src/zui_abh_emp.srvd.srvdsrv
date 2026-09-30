@@ -1,0 +1,6 @@
+@EndUserText.label: 'ABH Employee Management Service'
+define service ZUI_ABH_EMP
+  provider contracts odata_v4_ui {
+  expose ZC_ABH_DEPT as Department;
+  expose ZC_ABH_EMP  as Employee;
+}

@@ -1,0 +1,86 @@
+managed implementation in class zbp_i_abh_dept unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_ABH_DEPT alias Department
+persistent table zabh_rap_dept
+draft table zabh_rap_dept_d
+lock master
+total etag LastChangedAt
+authorization master ( instance, global )
+{
+  create;
+  update;
+  delete;
+
+  association _Employee { create; with draft; }
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+
+  draft determine action Prepare;
+
+  field ( readonly : update )
+    DepartmentId;
+
+  field ( readonly )
+    CreatedBy,
+    CreatedAt,
+    LastChangedBy,
+    LastChangedAt;
+
+  mapping for zabh_rap_dept
+  {
+    DepartmentId   = department_id;
+    DepartmentName = department_name;
+    Location       = location;
+
+    CreatedBy      = created_by;
+    CreatedAt      = created_at;
+    LastChangedBy  = last_changed_by;
+    LastChangedAt  = last_changed_at;
+  }
+}
+
+define behavior for ZI_ABH_EMP alias Employee
+persistent table zabh_rap_emp
+draft table zabh_rap_emp_d
+lock dependent by _Department
+authorization dependent by _Department
+etag master LastChangedAt
+{
+  update;
+  delete;
+
+  association _Department { with draft; }
+
+  field ( readonly : update )
+    EmployeeId;
+
+  field ( readonly )
+    DepartmentId,
+    CreatedBy,
+    CreatedAt,
+    LastChangedBy,
+    LastChangedAt;
+
+  mapping for zabh_rap_emp
+  {
+    EmployeeId  = employee_id;
+    FirstName   = first_name;
+    LastName    = last_name;
+    Email       = email;
+    Designation = designation;
+    Salary      = salary;
+    JoiningDate = joining_date;
+    DepartmentId = department_id;
+    Status       = status;
+
+    CreatedBy      = created_by;
+    CreatedAt      = created_at;
+    LastChangedBy  = last_changed_by;
+    LastChangedAt  = last_changed_at;
+  }
+}
